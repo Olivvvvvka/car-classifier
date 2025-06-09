@@ -15,3 +15,10 @@ EXPOSE 5000
 
 # Запускаем Flask
 CMD ["python", "app.py"]
+RUN pip install --no-cache-dir \
+    flask \
+    tensorflow \
+    numpy \
+    pandas \
+    joblib \
+    scikit-learn
