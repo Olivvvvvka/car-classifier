@@ -1,5 +1,6 @@
 flask
 tensorflow
-joblib
 numpy
 pandas
+joblib
+scikit-learn
