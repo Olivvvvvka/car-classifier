@@ -1,24 +1,17 @@
-# Используем минимальный Python-образ
+# Используем минимальный образ
 FROM python:3.10-slim
 
 # Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Копируем файлы приложения (кроме модели!)
+# Копируем только нужные файлы
 COPY app.py requirements.txt ./
 
-# Устанавливаем зависимости
+# Устанавливаем зависимости ОДНИМ вызовом
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Открываем порт
 EXPOSE 5000
 
-# Запускаем Flask
+# Запуск
 CMD ["python", "app.py"]
-RUN pip install --no-cache-dir \
-    flask \
-    tensorflow \
-    numpy \
-    pandas \
-    joblib \
-    scikit-learn
